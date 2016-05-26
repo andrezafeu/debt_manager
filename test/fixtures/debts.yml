@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  amount: 1.5
+  minimum_payment: 1.5
+  interest_rate: 1.5
+  interest_amount: 1.5
+  estimated_payoff_date: 2016-05-26
+
+two:
+  name: MyString
+  amount: 1.5
+  minimum_payment: 1.5
+  interest_rate: 1.5
+  interest_amount: 1.5
+  estimated_payoff_date: 2016-05-26
