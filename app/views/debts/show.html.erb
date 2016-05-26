@@ -1,0 +1,13 @@
+   
+<p>Loan: <%= @my_debt.name %></p>
+<p>Amount: $ <%= @my_debt.amount %></p>
+<p>Minimum payment: $ <%= @my_debt.minimum_payment %></p>
+<p>Interest rate: <%= @my_debt.interest_rate %> %</p>
+<p>Interest amount: $ <%= @my_debt.interest_amount %></p>
+<p>Estimated Payoff Date: <%= @my_debt.estimated_payoff_date %></p>
+
+<%= link_to 'Edit Debt', edit_debt_path(@my_debt) %>
+
+<%= link_to 'Delete debt', debt_path(@my_debt.id), data: { confirm: "Are you sure?" }, method: :delete %>
+
+<%= link_to "Back", :back %>

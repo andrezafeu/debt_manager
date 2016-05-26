@@ -1,0 +1,12 @@
+<button><%= link_to "Insert a new Debt", new_debt_path %></button>
+
+<% @my_debts.each do |debt| %>
+	<li>
+       	<p>Loan: <%= link_to debt.name, "/debts/#{debt.id}" %></p>
+       	<p>Amount: $ <%= debt.amount %></p>
+       	<p>Minimum payment: $ <%= debt.minimum_payment %></p>
+       	<p>Interest rate: <%= debt.interest_rate %> %</p>
+       	<p>Interest amount: $ <%= debt.interest_amount %></p>
+       	<p>Estimated Payoff Date: <%= debt.estimated_payoff_date %>
+	</li>
+<% end %>

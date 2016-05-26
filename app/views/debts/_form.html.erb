@@ -1,0 +1,39 @@
+<%= form_for @my_debt do |f| %>
+  <% if @my_debt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@my_debt.errors.count, "error") %> prohibited this debt from being saved:</h2>
+      <ul>
+      <% @my_debt.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount, :step => 'any' %>
+  </div>
+  <div class="field">
+    <%= f.label :minimum_payment %><br>
+    <%= f.number_field :minimum_payment, :step => 'any' %>
+  </div>
+  <div class="field">
+    <%= f.label :interest_rate %><br>
+    <%= f.number_field :interest_rate, :step => 'any' %>
+  </div>
+  <div class="field">
+    <%= f.label :interest_amount %><br>
+    <%= f.number_field :interest_amount, :step => 'any' %>
+  </div>
+  <div class="field">
+    <%= f.label :estimated_payoff_date %><br>
+    <%= f.date_field :estimated_payoff_date %>
+  </div>
+  <%= f.submit class: 'create-debt-button' %>
+<% end %>
+
+<%= link_to "Back", :back %>
