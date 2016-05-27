@@ -10,7 +10,6 @@ class DebtsController < ApplicationController
   	end
 	def create
 		@my_debt = Debt.new(debt_params)
-		puts @my_debt
 		if @my_debt.save
 			respond_to do |format|
 				format.html { redirect_to @my_debt, notice: 'Your debt was created!'}

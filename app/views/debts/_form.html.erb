@@ -1,39 +1,72 @@
-<%= form_for @my_debt do |f| %>
-  <% if @my_debt.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@my_debt.errors.count, "error") %> prohibited this debt from being saved:</h2>
-      <ul>
-      <% @my_debt.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.number_field :amount, :step => 'any' %>
-  </div>
-  <div class="field">
-    <%= f.label :minimum_payment %><br>
-    <%= f.number_field :minimum_payment, :step => 'any' %>
-  </div>
-  <div class="field">
-    <%= f.label :interest_rate %><br>
-    <%= f.number_field :interest_rate, :step => 'any' %>
-  </div>
-  <div class="field">
-    <%= f.label :interest_amount %><br>
-    <%= f.number_field :interest_amount, :step => 'any' %>
-  </div>
-  <div class="field">
-    <%= f.label :estimated_payoff_date %><br>
-    <%= f.date_field :estimated_payoff_date %>
-  </div>
-  <%= f.submit class: 'create-debt-button' %>
-<% end %>
+<h3 class="center">Debt Information</h3>
 
-<%= link_to "Back", :back %>
+<div class="row">
+  <div class="col s10 m8 offset-s1 offset-s-1 offset-m2 offset-m-2"> 
+    <%= form_for @my_debt do |f| %>
+      <% if @my_debt.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@my_debt.errors.count, "error") %> prohibited this debt from being saved:</h2>
+          <ul>
+          <% @my_debt.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+  </div>
+  <div class="row">
+    <div class="field col s5 m2 offset-m2">
+      <%= f.label :name %><br>
+    </div>
+    <div class="field col s6 m5 offset-m-3">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field col s5 m2 offset-m2">
+      <%= f.label :amount %><br>
+    </div>
+    <div class="field col s6 m5 offset-m-3">
+      <%= f.number_field :amount, :step => 'any' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field col s5 m2 offset-m2">
+      <%= f.label :minimum_payment %><br>
+    </div>
+    <div class="field col s6 m5 offset-m-3">
+      <%= f.number_field :minimum_payment, :step => 'any' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field col s5 m2 offset-m2">
+      <%= f.label :interest_rate %><br>
+    </div>
+    <div class="field col s6 m5 offset-m-3">
+      <%= f.number_field :interest_rate, :step => 'any' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field col s5 m2 offset-m2">
+      <%= f.label :interest_amount %>
+    </div>
+    <div class="field col s6 m5 offset-m-3">
+      <%= f.number_field :interest_amount, :step => 'any' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field col s5 m2 offset-m2">
+      <%= f.label :estimated_payoff_date %>
+    </div>
+    <div class="field col s6 m5 offset-m-3">
+      <%= f.date_field :estimated_payoff_date, class: "center" %>
+    </div>
+  </div>
+  <div class="row center">
+      <%= f.submit class: 'btn' %>
+    <% end %>
+  </div>
+  <div class="row center">
+    <%= link_to "Back", :back %>
+  </div>
+</div>
