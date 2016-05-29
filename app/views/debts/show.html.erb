@@ -1,55 +1,62 @@
-<div class="row center">
-    <div class="col s10 m8 offset-s1 offset-s-1 offset-m2 offset-m-2"> 
-        <h4><%= @my_debt.name %></h4>
-    </div>
-</div>
-<br>
 <div class="row">
-    <div class="field col s5 m3 offset-m3">
-        <h5>Amount: $ </h5>
+    <div class="col s12 m8"> 
+        <div class="row center">
+            <div class="col s10 m8 offset-s1 offset-s-1 offset-m2 offset-m-2"> 
+                <h4><%= @my_debt.name %></h4>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="field col s5 m4 offset-m2">
+                <h5>Amount: $ </h5>
+            </div>
+            <div class="field col s6 m4 offset-m-2 center">
+                <h5><%= @my_debt.amount %></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field col s5 m4 offset-m2">
+                <h5>Minimum payment: $ </h5>
+            </div>
+            <div class="field col s6 m4 offset-m-2 center">
+                <h5><%= @my_debt.minimum_payment %></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field col s5 m4 offset-m2">
+                <h5>Interest Rate: </h5>
+            </div>
+            <div class="field col s6 m4 offset-m-2 center">
+                <h5><%= @my_debt.interest_rate %></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field col s5 m4 offset-m2">
+                <h5>Interest Amount: $ </h5>
+            </div>
+            <div class="field col s6 m4 offset-m-2 center">
+                <h5><%= @my_debt.interest_amount %></h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field col s5 m4 offset-m2">
+                <h5>Estimated Payoff Date</h5>
+            </div>
+            <div class="field col s6 m4 offset-m-2 center">
+                <h5><%= @my_debt.estimated_payoff_date %></h5>
+            </div>
+        </div>
+        <br>
+        <div class="row center">
+            <div class="field col s6 m2 offset-m4 center">
+                <%= link_to 'Edit Debt', edit_debt_path(@my_debt), class: 'btn' %>
+            </div>
+            <div class="field col s6 m2 offset-m-4 center">
+                <%= button_to 'Delete debt', debt_path(@my_debt.id), class: 'btn', data: { confirm: "Are you sure?" }, method: :delete %>
+            </div>
+        </div>
     </div>
-    <div class="field col s6 m3 offset-m-3 center">
-        <h5><%= @my_debt.amount %></h5>
-    </div>
-</div>
-<div class="row">
-    <div class="field col s5 m3 offset-m3">
-        <h5>Minimum payment: $ </h5>
-    </div>
-    <div class="field col s6 m3 offset-m-3 center">
-        <h5><%= @my_debt.minimum_payment %></h5>
-    </div>
-</div>
-<div class="row">
-    <div class="field col s5 m3 offset-m3">
-        <h5>Interest Rate: </h5>
-    </div>
-    <div class="field col s6 m3 offset-m-3 center">
-        <h5><%= @my_debt.interest_rate %></h5>
-    </div>
-</div>
-<div class="row">
-    <div class="field col s5 m3 offset-m3">
-        <h5>Interest Amount: $ </h5>
-    </div>
-    <div class="field col s6 m3 offset-m-3 center">
-        <h5><%= @my_debt.interest_amount %></h5>
-    </div>
-</div>
-<div class="row">
-    <div class="field col s5 m3 offset-m3">
-        <h5>Estimated Payoff Date</h5>
-    </div>
-    <div class="field col s6 m3 offset-m-3 center">
-        <h5><%= @my_debt.estimated_payoff_date %></h5>
-    </div>
-</div>
-<br>
-<div class="row center">
-    <div class="field col s6 m2 offset-m4 center">
-        <%= link_to 'Edit Debt', edit_debt_path(@my_debt), class: 'btn' %>
-    </div>
-    <div class="field col s6 m2 offset-m-4 center">
-        <%= button_to 'Delete debt', debt_path(@my_debt.id), class: 'btn', data: { confirm: "Are you sure?" }, method: :delete %>
+    <div class="col s12 m4"> 
+    <%= render "payments" %>
     </div>
 </div>

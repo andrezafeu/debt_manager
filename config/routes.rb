@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :debts, only: [:show, :new, :create, :edit, :destroy, :update]
+  resources :debts, only: [:show, :new, :create, :edit, :destroy, :update] do
+    resources :payments, only: [:index, :create, :new, :show]
+  end
 
   root 'debts#index'
 

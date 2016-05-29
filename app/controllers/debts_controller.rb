@@ -4,6 +4,14 @@ class DebtsController < ApplicationController
 
 	def index
     	@my_debts = Debt.all
+    	@my_debts_sum = 0;
+    	@my_debts.each do |debt|
+    		debt.payments.each do |payment|
+      			debt.amount -= payment.value
+      		end
+    		@my_debts_sum += debt.amount
+      	end
+      	@my_debts_sum
   	end
 	def new
     	@my_debt = Debt.new
@@ -20,6 +28,9 @@ class DebtsController < ApplicationController
 			end
 		end
 	end
+	def show
+		@payments = @my_debt.payments
+	end
 	def edit
 	end
 	def update
@@ -34,7 +45,7 @@ class DebtsController < ApplicationController
 	def destroy
 		if @my_debt.destroy
       		flash[:notice] = "Your debt was deleted!"
-      	redirect_to root_path
+      		redirect_to root_path
     	else
       		flash.now[:alert] = "There was an error deleting the debt. Try again."
       	end
@@ -42,6 +53,9 @@ class DebtsController < ApplicationController
 	private
 	def set_debt
       	@my_debt = Debt.find(params[:id])
+      	@my_debt.payments.each do |payment|
+      		@my_debt.amount -= payment.value
+      	end
     end
 	def debt_params
       	params.require(:debt).permit(:name, :amount, :minimum_payment, :interest_rate, 

@@ -1,0 +1,40 @@
+<h3 class="center">Payment Information</h3>
+<br>
+<div class="row">
+  <div class="col s10 m8 offset-s1 offset-s-1 offset-m2 offset-m-2"> 
+    <%= form_for [@my_debt, @my_payment] do |f| %>
+      <% if @my_payment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@my_payment.errors.count, "error") %> prohibited this debt from being saved:</h2>
+          <ul>
+          <% @my_payment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+  </div>
+    <div class="row">
+    <div class="field col s5 m2 offset-m2">
+      <%= f.label :value %><br>
+    </div>
+    <div class="field col s6 m5 offset-m-3">
+      <%= f.number_field :value, :step => 'any', class: 'center' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="field col s5 m2 offset-m2">
+      <%= f.label :date %>
+    </div>
+    <div class="field col s6 m5 offset-m-3">
+      <%= f.date_field :date, class: 'center' %>
+    </div>
+  </div>
+  <div class="row center">
+      <%= f.submit 'Save', class: 'btn' %>
+    <% end %>
+  </div>
+  <div class="row center">
+    <%= link_to "Back", :back %>
+  </div>
+</div>

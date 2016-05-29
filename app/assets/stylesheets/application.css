@@ -17,3 +17,10 @@
 .field label {
 	font-size: 1.4em;
 }
+
+.field input[type=number],
+.field input[type=text],
+.field input[type=date]
+ {
+	font-size: 1.4em;
+}

@@ -1,5 +1,5 @@
 <div class="row center">
-	<h3>These are your debts:</h3>	
+	<h3>You have a total of $ <%= @my_debts_sum %> in debts</h3>	
 </div>
 
 <div class="row">
@@ -7,15 +7,15 @@
         <div class="col s12 m4">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              	<span class="card-title"><%= debt.name %></span>
-              	<p>Amount: $ <%= debt.amount %></p>
-		       	<p>Minimum payment: $ <%= debt.minimum_payment %></p>
-		       	<p>Interest rate: <%= debt.interest_rate %> %</p>
-		       	<p>Interest amount: $ <%= debt.interest_amount %></p>
-		       	<p>Estimated Payoff Date: <%= debt.estimated_payoff_date %>
+              <span class="card-title"><%= debt.name %></span>
+              <p>Amount: $ <%= debt.amount %></p>
+    		      <p>Minimum payment: $ <%= debt.minimum_payment %></p>
+    		      <p>Interest rate: <%= debt.interest_rate %> %</p>
+    		      <p>Interest amount: $ <%= debt.interest_amount %></p>
+    		      <p>Estimated Payoff Date: <%= debt.estimated_payoff_date %></p>
             </div>
             <div class="card-action">
-              <a href="#">Add Payment</a>
+              <%= link_to 'Add Payment', new_debt_payment_path(debt.id) %>
               <%= link_to 'See Details', debt_path(debt.id) %>
             </div>
           </div>

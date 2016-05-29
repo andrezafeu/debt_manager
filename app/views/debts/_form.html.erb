@@ -19,7 +19,7 @@
       <%= f.label :name %><br>
     </div>
     <div class="field col s6 m5 offset-m-3">
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: 'center' %>
     </div>
   </div>
   <div class="row">
@@ -27,7 +27,7 @@
       <%= f.label :amount %><br>
     </div>
     <div class="field col s6 m5 offset-m-3">
-      <%= f.number_field :amount, :step => 'any' %>
+      <%= f.number_field :amount, :step => 'any', class: 'center' %>
     </div>
   </div>
   <div class="row">
@@ -35,7 +35,7 @@
       <%= f.label :minimum_payment %><br>
     </div>
     <div class="field col s6 m5 offset-m-3">
-      <%= f.number_field :minimum_payment, :step => 'any' %>
+      <%= f.number_field :minimum_payment, :step => 'any', class: 'center' %>
     </div>
   </div>
   <div class="row">
@@ -43,7 +43,7 @@
       <%= f.label :interest_rate %><br>
     </div>
     <div class="field col s6 m5 offset-m-3">
-      <%= f.number_field :interest_rate, :step => 'any' %>
+      <%= f.number_field :interest_rate, :step => 'any', class: 'center' %>
     </div>
   </div>
   <div class="row">
@@ -51,7 +51,7 @@
       <%= f.label :interest_amount %>
     </div>
     <div class="field col s6 m5 offset-m-3">
-      <%= f.number_field :interest_amount, :step => 'any' %>
+      <%= f.number_field :interest_amount, :step => 'any', class: 'center' %>
     </div>
   </div>
   <div class="row">
@@ -59,7 +59,7 @@
       <%= f.label :estimated_payoff_date %>
     </div>
     <div class="field col s6 m5 offset-m-3">
-      <%= f.date_field :estimated_payoff_date, class: "center" %>
+      <%= f.date_field :estimated_payoff_date, class: 'center' %>
     </div>
   </div>
   <div class="row center">

@@ -1,0 +1,22 @@
+<h5 class="center">Payments History</h5>
+<br>
+<div class="row">
+    <div class="col s12 m10 offset-m1 offset-m-1">
+        <table class="centered striped">
+            <thead>
+                <tr>
+                    <th data-field="date">Date</th>
+                    <th data-field="value">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @payments.each do |payment| %>
+                    <tr>
+                        <td><%= payment.date %></td>
+                        <td><%= payment.value %></td>
+                    </tr>    
+                <% end %> 
+            </tbody>
+        </table>
+    </div>
+</div>
