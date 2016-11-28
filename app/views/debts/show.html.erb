@@ -35,7 +35,7 @@
                 <h5>Interest Amount: $ </h5>
             </div>
             <div class="field col s6 m4 offset-m-2 center">
-                <h5><%= @my_debt.interest_amount %></h5>
+                <h5><%= (@my_debt.amount*@my_debt.interest_rate/100).round(2) %></h5>
             </div>
         </div>
         <div class="row">

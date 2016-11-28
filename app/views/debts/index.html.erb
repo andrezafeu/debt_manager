@@ -1,5 +1,6 @@
 <div class="row center">
-	<h3>You have a total of $ <%= @my_debts_sum %> in debts</h3>	
+	<h3>You have a total of $ <%= @my_debts_sum.round(2) %> in debts.</h3>	
+  <h4>You are paying a total of $ <%= @my_interests_sum.round(2) %> on interests per year.</h4>
 </div>
 
 <div class="row">
@@ -11,7 +12,7 @@
               <p>Amount: $ <%= debt.amount %></p>
     		      <p>Minimum payment: $ <%= debt.minimum_payment %></p>
     		      <p>Interest rate: <%= debt.interest_rate %> %</p>
-    		      <p>Interest amount: $ <%= debt.interest_amount %></p>
+    		      <p>Interest amount: $ <%= debt.interest_amount.round(2) %></p>
     		      <p>Estimated Payoff Date: <%= debt.estimated_payoff_date %></p>
             </div>
             <div class="card-action">

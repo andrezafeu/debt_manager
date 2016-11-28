@@ -4,14 +4,13 @@ class DebtsController < ApplicationController
 
 	def index
     	@my_debts = Debt.all
-    	@my_debts_sum = 0;
+    	@my_debts_sum = 0
+    	@my_interests_sum = 0
     	@my_debts.each do |debt|
-    		debt.payments.each do |payment|
-      			debt.amount -= payment.value
-      		end
+      		debt.interest_amount = debt.amount*debt.interest_rate/100
     		@my_debts_sum += debt.amount
+    		@my_interests_sum += debt.interest_amount
       	end
-      	@my_debts_sum
   	end
 	def new
     	@my_debt = Debt.new
@@ -19,6 +18,7 @@ class DebtsController < ApplicationController
 	def create
 		@my_debt = Debt.new(debt_params)
 		if @my_debt.save
+			@my_debt.interest_amount = @my_debt.amount*interest_rate/100
 			respond_to do |format|
 				format.html { redirect_to @my_debt, notice: 'Your debt was created!'}
 			end
@@ -53,9 +53,6 @@ class DebtsController < ApplicationController
 	private
 	def set_debt
       	@my_debt = Debt.find(params[:id])
-      	@my_debt.payments.each do |payment|
-      		@my_debt.amount -= payment.value
-      	end
     end
 	def debt_params
       	params.require(:debt).permit(:name, :amount, :minimum_payment, :interest_rate, 
