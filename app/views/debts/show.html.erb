@@ -30,17 +30,27 @@
                 <h5><%= @my_debt.interest_rate %></h5>
             </div>
         </div>
+        <% if @accrued_interest %>
+            <div class="row">
+                <div class="field col s5 m4 offset-m2">
+                    <h5>Accrued Interest: $ </h5>
+                </div>
+                <div class="field col s6 m4 offset-m-2 center">
+                        <h5><%= @accrued_interest.round(2) %></h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field col s5 m4 offset-m2">
+                    <h5>Payoff Amount: $ </h5>
+                </div>
+                <div class="field col s6 m4 offset-m-2 center">
+                    <h5><%= @payoff_amount.round(2) %></h5>
+                </div>
+            </div>
+        <% end %>
         <div class="row">
             <div class="field col s5 m4 offset-m2">
-                <h5>Interest Amount: $ </h5>
-            </div>
-            <div class="field col s6 m4 offset-m-2 center">
-                <h5><%= (@my_debt.amount*@my_debt.interest_rate/100).round(2) %></h5>
-            </div>
-        </div>
-        <div class="row">
-            <div class="field col s5 m4 offset-m2">
-                <h5>Estimated Payoff Date</h5>
+                <h5>Estimated Payoff Date:</h5>
             </div>
             <div class="field col s6 m4 offset-m-2 center">
                 <h5><%= @my_debt.estimated_payoff_date %></h5>

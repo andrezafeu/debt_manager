@@ -18,7 +18,7 @@ class DebtsController < ApplicationController
 	def create
 		@my_debt = Debt.new(debt_params)
 		if @my_debt.save
-			@my_debt.interest_amount = @my_debt.amount*interest_rate/100
+			@my_debt.interest_amount = @my_debt.amount*@my_debt.interest_rate/100
 			respond_to do |format|
 				format.html { redirect_to @my_debt, notice: 'Your debt was created!'}
 			end
@@ -30,6 +30,10 @@ class DebtsController < ApplicationController
 	end
 	def show
 		@payments = @my_debt.payments
+		if @payments.length>0
+			@accrued_interest = @my_debt.amount*(@payments.last.date-Date.today)*(@my_debt.interest_rate/100/365.25)*-1
+			@payoff_amount = @my_debt.amount + @accrued_interest
+		end
 	end
 	def edit
 	end
